@@ -20,7 +20,7 @@ tags:
 
 # columnOverride
 > 用来修改表中某个列的属性，MBG会使用修改后的列来生成domain的属性  
-> column:要重新设置的列名
+> column:要重新设置的列名  
 > 一个table元素中可以有多个columnOverride元素
 
 ```xml
@@ -39,6 +39,7 @@ tags:
 > column:指定要忽略的列的名字  
 > delimitedColumnName：参考table元素的delimitAllColumns配置，默认为false  
 > 一个table元素中可以有多个ignoreColumn元素
+
 ```xml
 <ignoreColumn column="deptId" delimitedColumnName=""/>
 ```
