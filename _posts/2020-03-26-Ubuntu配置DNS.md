@@ -4,12 +4,12 @@ tags:
   - ubuntu
 ---
 
-```
+```shell
 vim /etc/systemd/resolved.conf
 ```
 
-![1561360717822](assets/image/ubuntu/ubuntu-dns.png)
+![DNS](/assets/image/ubuntu/ubuntu-dns.png)
 
-```
-sudo systemctl restart systemd-resolved.service
+```shell
+systemctl restart systemd-resolved.service
 ```
