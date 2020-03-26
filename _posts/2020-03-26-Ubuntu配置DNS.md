@@ -1,13 +1,13 @@
 ---
-title: Ubuntu防火墙
+title: Ubuntu配置DNS
 tags:
   - ubuntu
 ---
 
-```shell script
+```shell script  
 vim /etc/systemd/resolved.conf
 ```
 ![1561360717822](assets/image/ubuntu/ubuntu-dns.png)
-```shell script
+```shell script  
 sudo systemctl restart systemd-resolved.service
 ```
