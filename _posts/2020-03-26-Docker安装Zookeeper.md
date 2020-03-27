@@ -37,6 +37,14 @@ docker run -it --privileged=true -d \
     zookeeper:latest
 ```
 
+# 使用 ZK 命令行客户端连接
+```shell script
+docker run -it --rm \
+    --link zookeeper_2181:zookeeper \
+    zookeeper:latest \
+    zkCli.sh -server zookeeper
+```
+
 # 检查容器的运行情况
 ```shell script
 docker exec -it zookeeper_2181 /bin/bash
