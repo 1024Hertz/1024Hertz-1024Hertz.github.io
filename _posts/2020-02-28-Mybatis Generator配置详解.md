@@ -14,16 +14,16 @@ tags:
 ## **注意**
 * 如果使用了columnOverride元素，该属性无效
 
-```xml
+~~~xml
 <columnRenamingRule searchString="" replaceString=""/>
-```
+~~~
 
 # columnOverride
 > 用来修改表中某个列的属性，MBG会使用修改后的列来生成domain的属性  
 > column:要重新设置的列名  
 > 一个table元素中可以有多个columnOverride元素
 
-```xml
+~~~xml
 <columnOverride column="username">
     <!-- 使用property属性来指定列要生成的属性名称 -->
     <property name="property" value="userName"/>
@@ -32,7 +32,7 @@ tags:
     <!-- jdbcType用于指定该列的JDBC类型 -->
     <property name="jdbcType" value=""/>
 </columnOverride>
-```
+~~~
 
 # ignoreColumn
 > ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现  
@@ -40,6 +40,6 @@ tags:
 > delimitedColumnName：参考table元素的delimitAllColumns配置，默认为false  
 > 一个table元素中可以有多个ignoreColumn元素
 
-```xml
+~~~xml
 <ignoreColumn column="deptId" delimitedColumnName=""/>
-```
+~~~

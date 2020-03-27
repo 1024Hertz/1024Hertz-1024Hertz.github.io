@@ -6,18 +6,18 @@ tags:
 ---
 
 # 拉取镜像
-```shell script
+~~~shell
 docker pull mongo:latest
-```
+~~~
 
 # 创建文件夹
-```shell script
+~~~shell
 mkdir -p /usr/local/docker/mongo/data/configdb \
 && mkdir -p /usr/local/docker/mongo/data/db
-```
+~~~
 
 # 创建容器
-```shell script
+~~~shell
 docker run -d \
     --name mongod_27017 \
     -p 27017:27017  \
@@ -26,23 +26,23 @@ docker run -d \
     -v /usr/local/docker/mongo/data/db:/data/db/ \
     mongo:latest \
     --auth 
-```
+~~~
 
 # 设置账号和密码
-```shell script
+~~~shell
 docker exec -it mongod_27017 mongo admin
 db.createUser({ user: 'admin', pwd: '123456', roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });	
-```
+~~~
 
 # 设置一个其他用户
-```shell script
+~~~shell
 db.auth("admin", "123456")
 db.createUser({ user: 'olympos', pwd: '123456', roles: [ { role: "readWrite", db: "olympos" } ] });
-```
+~~~
 
 # 查看容器IP
-```shell script
+~~~shell
 docker exec -it mongod_27017 cat /etc/hosts
-```
+~~~
 
 	 

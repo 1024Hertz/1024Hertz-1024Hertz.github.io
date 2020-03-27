@@ -6,22 +6,22 @@ tags:
 ---
 
 # 备份
-```shell script
+~~~shell
 mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
-```
+~~~
 ---
 # 替换源
-```shell script
+~~~shell
 echo "deb http://mirrors.163.com/debian/ jessie main" >/etc/apt/sources.list && \
 echo "deb http://mirrors.163.com/debian/ jessie-updates main" >>/etc/apt/sources.list
-```
+~~~
 ---
 # 更新源
-```shell script
+~~~shell
 apt-get update 
-```
+~~~
 ---
 # 安装VIM
-```shell script
+~~~shell
 apt-get install vim
-``` 
+~~~ 

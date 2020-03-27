@@ -6,20 +6,20 @@ tags:
 ---
 
 * 解压JDK
-```shell script
+~~~shell
 mkdir /usr/local/jdk
 tar -zxvf jdk-8u241-linux-x64.tar.gz 
-```
+~~~
 > 配置
-```shell script
+~~~shell
 vim /etc/profile
-```
-```
+~~~
+~~~
 # JDK环境配置
 export JAVA_HOME=/usr/local/jdk/jdk1.8.0_241
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
-```
-```shell script
+~~~
+~~~shell
 source /etc/profile
-```
+~~~
