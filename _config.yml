@@ -34,7 +34,7 @@ jekyll-theme-1024Hertz: # 我的主题的自定义样式都在这个命名空间
     recent:
       enable: true
       title: Recent
-      limit: 5
+      limit: 10
       archive:
         enable: true
         href: /archive
