@@ -16,7 +16,7 @@ mkdir -p /usr/local/docker/redis/data
 ~~~
 
 # 配置项
-~~~
+~~~shell
 replicaof <masterip> <masterport>
 ~~~
 
@@ -72,10 +72,9 @@ docker run -itd \
   redis-sentinel /data/sentinel_33.conf
 ~~~
 
-# 
+# 验证命令
 ~~~shell
 docker inspect redis-master | grep IPA
 docker exec -it redis_master redis-cli
 ~~~
 * 进入redis客户端，再输入密码，然后使用info查看节点信息
-    * 
