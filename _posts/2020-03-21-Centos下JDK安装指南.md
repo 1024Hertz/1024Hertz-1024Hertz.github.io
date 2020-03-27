@@ -17,7 +17,7 @@ vim /etc/profile
 ~~~
 ---
 * JDK环境配置
-~~~conf
+~~~vim
 export JAVA_HOME=/usr/local/jdk/jdk1.8.0_241
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
