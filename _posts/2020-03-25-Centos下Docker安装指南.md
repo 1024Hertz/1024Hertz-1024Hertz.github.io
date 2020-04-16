@@ -54,7 +54,8 @@ vim /etc/docker/daemon.json
 ~~~
 ~~~json
 {
- "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"] 
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],
+  "graph": "/usr/local/docker"
 }
 ~~~
 * `reload`配置文件
