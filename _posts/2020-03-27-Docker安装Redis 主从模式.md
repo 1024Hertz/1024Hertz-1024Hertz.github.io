@@ -1,5 +1,5 @@
 ---
-title: Docker安装Redis
+title: Docker安装Redis 主从模式
 tags:
   - Redis
   - Docker
