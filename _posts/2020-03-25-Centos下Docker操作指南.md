@@ -14,3 +14,13 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 ~~~shell
 docker inspect --format='{{.Name}} - {{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 ~~~
+---
+* 创建自定义网络
+~~~shell
+docker network create -d bridge --subnet 192.1.0.0/16 network_1
+~~~
+~~~shell
+docker network inspect network_1
+~~~
+---
+* 
