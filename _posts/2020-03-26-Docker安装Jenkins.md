@@ -28,6 +28,8 @@ docker run -it --privileged=true -d \
     --user=root \
     -p 7000:8080 \
     -p 7070:50000 \
+    -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai \
+    -v /etc/localtime:/etc/localtime \
     -v /usr/local/docker/jenkins/home:/var/jenkins_home \
     jenkins/jenkins:lts
 ~~~
