@@ -41,9 +41,11 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 ~~~
 
 # 更改镜像地址
-* `https://jenkins-zh.cn/tutorial/management/plugin/update-center/`
-* 进入`/usr/local/docker/jenkins/home/`, 打开`hudson.model.UpdateCenter.xml`
-* 将`url`替换为`https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json`
+~~~shell
+https://jenkins-zh.cn/tutorial/management/plugin/update-center/
+进入/usr/local/docker/jenkins/home/, 打开hudson.model.UpdateCenter.xml
+将url替换为https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+~~~
 ---
 ~~~shell
 cd /usr/local/docker/jenkins/home/updates
@@ -51,7 +53,10 @@ sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsing
 ~~~
 
 # 报错`No such plugin: cloudbees-folder`
-* 打开链接`http://ftp.icm.edu.pl/packages/jenkins/plugins/cloudbees-folder/`
+* 打开链接
+~~~shell
+http://ftp.icm.edu.pl/packages/jenkins/plugins/cloudbees-folder/
+~~~
 * 在最下面找到并打开`latest`目录
 * 将目录中的`cloudbees-folder.hpi`下载
 * 访问 IP:PORT/restart，越过配置插件的页面，直接访问
