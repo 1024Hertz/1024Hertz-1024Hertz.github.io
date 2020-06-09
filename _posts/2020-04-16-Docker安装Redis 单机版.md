@@ -12,7 +12,7 @@ docker pull redis:latest
 
 # 创建文件夹
 ~~~shell
-mkdir /usr/local/redis/{conf,data} -p
+mkdir -p /usr/local/redis/{conf,data}
 ~~~
 
 # 获取redis的默认配置模板
@@ -27,13 +27,12 @@ sed -i 's/protected-mode yes/protected-mode no/' conf/redis.conf
 
 # 创建容器
 ~~~shell
-docker run -itd \
-  --name redis \
-  -p 6379:6379 \
-  --net customNetwork --ip 172.18.0.3 \
+docker run -it -d \
+  --privileged=true \
+  --name centos_redis \
+  -p 8518:6379 \
   -v /usr/local/redis/data:/data \
   -v /usr/local/redis/conf/redis.conf:/etc/redis/redis.conf \
-  --privileged=true \
   redis:latest \
   redis-server /etc/redis/redis.conf
 ~~~

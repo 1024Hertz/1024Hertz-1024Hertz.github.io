@@ -7,13 +7,13 @@ tags:
 
 # 备份
 ~~~shell
-mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
 ~~~
 ---
 # 替换源
 ~~~shell
-echo "deb http://mirrors.163.com/debian/ jessie main" >/etc/apt/sources.list && \
-echo "deb http://mirrors.163.com/debian/ jessie-updates main" >>/etc/apt/sources.list
+echo "deb http://mirrors.163.com/debian/ jessie main" >/etc/apt/sources.list \
+&& echo "deb http://mirrors.163.com/debian/ jessie-updates main" >>/etc/apt/sources.list
 ~~~
 ---
 # 更新源

@@ -13,20 +13,20 @@ docker pull mysql:5.7
 ---
 # 创建文件夹
 ~~~shell
-mkdir -p /usr/local/docker/mysql/conf \
-&& mkdir -p /usr/local/docker/mysql/logs \
-&& mkdir -p /usr/local/docker/mysql/data 
+mkdir -p /usr/local/mysql/conf \
+&& mkdir -p /usr/local/mysql/logs \
+&& mkdir -p /usr/local/mysql/data 
 ~~~
 ---
 # 启动容器
 ~~~shell
 docker run -d \
-  --name mysql-5.7.x \
-  -p 3306:3306 \
+  --name centos_mysql_5.7.x \
+  -p 8418:3306 \
   -v /etc/localtime:/etc/localtime \
-  -v /usr/local/docker/mysql/conf:/etc/mysql/conf.d \
-  -v /usr/local/docker/mysql/logs:/logs \
-  -v /usr/local/docker/mysql/data:/mysql_data \
+  -v /usr/local/mysql/conf:/etc/mysql/conf.d \
+  -v /usr/local/mysql/logs:/logs \
+  -v /usr/local/mysql/data:/mysql_data \
   -e MYSQL_ROOT_PASSWORD=root \
   mysql:5.7 \
   --lower_case_table_names=1 \
@@ -36,12 +36,12 @@ docker run -d \
 ---
 # 进入容器
 ~~~shell
-docker exec -it mysql-5.7.x bash
+docker exec -it centos_mysql_5.7.x bash
 ~~~
 ---
 # 设置容器自动启动
 ~~~shell
-docker update --restart=always mysql-5.7.x
+docker update --restart=always centos_mysql_5.7.x
 ~~~
 ---
 # `/etc/mysql/mysql.conf.d/mysqld.cfg`

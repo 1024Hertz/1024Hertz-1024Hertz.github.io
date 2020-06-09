@@ -12,44 +12,44 @@ docker pull jenkins/jenkins:lts
 
 # 创建文件夹
 ~~~shell
-mkdir -p /usr/local/docker/jenkins/home
-~~~
-
-# 自定义网络
-~~~shell
-docker network create --driver bridge --subnet=172.18.0.0/16 --gateway=172.18.0.1 customNetwork
+mkdir -p /usr/local/jenkins/home
 ~~~
 
 # 启动镜像
 ~~~shell
-docker run -it --privileged=true -d \
-    --name jenkins \
+docker run -it -d \
+    --privileged=true \
+    --name centos_jenkins \
     --restart=always \
     --user=root \
-    -p 7000:8080 \
-    -p 7070:50000 \
+    -p 8318:8080 \
+    -p 8328:50000 \
     -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai \
     -v /etc/localtime:/etc/localtime \
-    -v /usr/local/docker/jenkins/home:/var/jenkins_home \
+    -v /usr/local/jenkins/home:/var/jenkins_home \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /usr/bin/git:/usr/bin/git \
+    -v /usr/local/jdk:/usr/local/jdk \
+    -v /usr/local/maven:/usr/local/maven \
     jenkins/jenkins:lts
 ~~~
-
-# 查找密码
-~~~shell
-docker exec -it jenkins /bin/bash
-cat /var/jenkins_home/secrets/initialAdminPassword
-~~~
-
+---
 # 更改镜像地址
 ~~~shell
 https://jenkins-zh.cn/tutorial/management/plugin/update-center/
-进入/usr/local/docker/jenkins/home/, 打开hudson.model.UpdateCenter.xml
+进入/usr/local/jenkins/home/, 打开hudson.model.UpdateCenter.xml
 将url替换为https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 ~~~
 ---
 ~~~shell
-cd /usr/local/docker/jenkins/home/updates
+cd /usr/local/jenkins/home/updates
 sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' default.json
+~~~
+---
+# 查找密码
+~~~shell
+docker exec -it jenkins /bin/bash
+cat /var/jenkins_home/secrets/initialAdminPassword
 ~~~
 
 # 报错`No such plugin: cloudbees-folder`
@@ -66,7 +66,7 @@ http://ftp.icm.edu.pl/packages/jenkins/plugins/cloudbees-folder/
 # Jenkins更新
 * 以root用户进入jenkins容器
 ~~~shell
-docker exec -it -u root jenkins /bin/bash
+docker exec -it -u root centos_jenkins /bin/bash
 ~~~
 * 查看容器中jenkins war包的位置，并备份原来的war包
 ~~~shell
