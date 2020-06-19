@@ -54,7 +54,13 @@ vim /etc/docker/daemon.json
 ~~~
 ~~~json
 {
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],
+  "registry-mirrors": [
+	"https://docker.mirrors.ustc.edu.cn",
+	"https://x97y9nlt.mirror.aliyuncs.com"
+  ],
+  "insecure-registries": [
+        "registry.docker.com:5000"
+  ],
   "graph": "/usr/local/docker"
 }
 ~~~
