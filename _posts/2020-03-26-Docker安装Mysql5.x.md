@@ -45,5 +45,10 @@ lower_case_table_names=1
 sql_mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION
 ~~~
 ---
+# 查看字符集
+~~~sql
+show variables like '%char%';
+~~~
+---
 # 官方帮助文档
 [MySQL 5.7 Docker](https://hub.docker.com/r/cytopia/mysql-5.7/)
