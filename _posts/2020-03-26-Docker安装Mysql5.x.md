@@ -11,22 +11,12 @@ tags:
 docker pull mysql:5.7
 ~~~
 ---
-# 创建文件夹
-~~~shell
-mkdir -p /usr/local/mysql/conf \
-&& mkdir -p /usr/local/mysql/logs \
-&& mkdir -p /usr/local/mysql/data 
-~~~
----
 # 启动容器
 ~~~shell
 docker run -d \
   --name centos_mysql_5.7.x \
   -p 8418:3306 \
   -v /etc/localtime:/etc/localtime \
-  -v /usr/local/mysql/conf:/etc/mysql/conf.d \
-  -v /usr/local/mysql/logs:/logs \
-  -v /usr/local/mysql/data:/mysql_data \
   -e MYSQL_ROOT_PASSWORD=root \
   mysql:5.7 \
   --lower_case_table_names=1 \
@@ -44,7 +34,7 @@ docker exec -it centos_mysql_5.7.x bash
 docker update --restart=always centos_mysql_5.7.x
 ~~~
 ---
-# `/etc/mysql/mysql.conf.d/mysqld.cfg`
+# `/etc/mysql/mysql.conf.d/mysqld.cnf`
 ~~~cfg
 [mysqld]
 pid-file	= /var/run/mysqld/mysqld.pid
